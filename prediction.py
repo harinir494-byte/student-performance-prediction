@@ -1,0 +1,17 @@
+prediction.py
+
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+data = pd.read_csv("student_data.csv")
+
+X = data[['Study_Hours', 'Attendance']]
+y = data['Marks']
+
+model = LinearRegression()
+model.fit(X, y)
+
+prediction = model.predict([[5, 90]])
+
+print("Predicted Marks:", prediction[0])
+
